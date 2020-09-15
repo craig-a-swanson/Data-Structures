@@ -14,14 +14,16 @@ Stretch: What if you could only use instances of your Stack class to implement t
          What would that look like? How many Stacks would you need? Try it!
 """
 
-# List version of Queue
+
+
+# List version of Queue ----------------------------
 class Queue:
     def __init__(self):
         self.size = 0
         self.storage = []
     
     def __len__(self):
-        return len(self.storage)
+        return self.size
 
     def enqueue(self, value):
         self.storage.append(value)
@@ -37,19 +39,19 @@ class Queue:
             return head_value
 
 # Tests for list version of Queue()
-# test_queue = Queue()
-# test_queue.enqueue(18)
-# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-# print(f'length is {test_queue.__len__()}')
-# test_queue.enqueue(99)
-# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-# print(f'length is {test_queue.__len__()}')
-# test_queue.enqueue(55)
-# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-# print(f'length is {test_queue.__len__()}')
-# test_queue.dequeue()
-# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-# print(f'length is {test_queue.__len__()}')
-# test_queue.dequeue()
-# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-# print(f'length is {test_queue.__len__()}')
+test_queue = Queue()
+test_queue.enqueue(18)
+print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+print(f'length is {test_queue.__len__()}')
+test_queue.enqueue(99)
+print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+print(f'length is {test_queue.__len__()}')
+test_queue.enqueue(55)
+print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+print(f'length is {test_queue.__len__()}')
+test_queue.dequeue()
+print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+print(f'length is {test_queue.__len__()}')
+test_queue.dequeue()
+print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+print(f'length is {test_queue.__len__()}')
