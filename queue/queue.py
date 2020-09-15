@@ -13,16 +13,43 @@ return elements in First In First Out order.
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+
+# List version of Queue
 class Queue:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = []
     
     def __len__(self):
-        pass
+        return len(self.storage)
 
     def enqueue(self, value):
-        pass
+        self.storage.append(value)
+        self.size += 1
 
     def dequeue(self):
-        pass
+        if self.size == 0:
+            return None
+        else:
+            head_value = self.storage[0]
+            del self.storage[0]
+            self.size -= 1
+            return head_value
+
+# Tests for list version of Queue()
+# test_queue = Queue()
+# test_queue.enqueue(18)
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.enqueue(99)
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.enqueue(55)
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.dequeue()
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.dequeue()
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
