@@ -27,7 +27,17 @@ class DoublyLinkedList:
     the old head node's previous pointer accordingly.
     """
     def add_to_head(self, value):
-        pass
+        new_list_node = ListNode(value)
+        if self.length == 0:
+            self.length = 1
+            self.head = new_list_node
+            self.tail = new_list_node
+        else:
+            self.length = self.length + 1
+            new_list_node.next = self.head
+            self.head.prev = new_list_node
+            self.head = new_list_node
+
         
     """
     Removes the List's current head node, making the
@@ -43,7 +53,16 @@ class DoublyLinkedList:
     the old tail node's next pointer accordingly.
     """
     def add_to_tail(self, value):
-        pass
+        new_list_node = ListNode(value)
+        if self.length == 0:
+            self.length = 1
+            self.head = new_list_node
+            self.tail = new_list_node
+        else:
+            self.length = self.length + 1
+            new_list_node.prev = self.tail
+            self.tail.next = new_list_node
+            self.tail = new_list_node
             
     """
     Removes the List's current tail node, making the 
@@ -80,3 +99,12 @@ class DoublyLinkedList:
     """
     def get_max(self):
         pass
+
+test_list = DoublyLinkedList()
+test_list.add_to_head(5)
+test_list.add_to_head(10)
+print(test_list.__len__())
+print(test_list.head.next.value)
+test_list.add_to_tail(20)
+print(test_list.tail.value)
+print(test_list.tail.prev.value)
