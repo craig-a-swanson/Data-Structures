@@ -91,7 +91,28 @@ class DoublyLinkedList:
     order of the other elements of the List.
     """
     def delete(self, node):
-        pass
+        # if list has one node
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+            self.length -= 1
+        # if node = head and there are more than one nodes
+        elif node == self.head:
+            self.head = node.next
+            node.next = None
+            self.head.prev = None
+            self.length -= 1
+        # if node = tail
+        elif node == self.tail:
+            self.tail = node.prev
+            node.prev = None
+            self.tail.next = None
+            self.length -= 1
+        # otherwise
+        else:
+            node.prev.next = node.next
+            node.next.prev = node.prev
+            self.length -= 1
 
     """
     Finds and returns the maximum value of all the nodes 
@@ -102,6 +123,7 @@ class DoublyLinkedList:
 
 test_list = DoublyLinkedList()
 test_list.add_to_head(5)
+print(test_list.__len__())
 test_list.add_to_head(10)
 print(test_list.__len__())
 print(test_list.head.next.value)
