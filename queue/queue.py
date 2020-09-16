@@ -17,44 +17,44 @@ Stretch: What if you could only use instances of your Stack class to implement t
 
 
 # List version of Queue ----------------------------
-class Queue:
-    def __init__(self):
-        self.size = 0
-        self.storage = []
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
     
-    def __len__(self):
-        return self.size
+#     def __len__(self):
+#         return self.size
 
-    def enqueue(self, value):
-        self.storage.append(value)
-        self.size += 1
+#     def enqueue(self, value):
+#         self.storage.append(value)
+#         self.size += 1
 
-    def dequeue(self):
-        if self.size == 0:
-            return None
-        else:
-            head_value = self.storage[0]
-            del self.storage[0]
-            self.size -= 1
-            return head_value
+#     def dequeue(self):
+#         if self.size == 0:
+#             return None
+#         else:
+#             head_value = self.storage[0]
+#             del self.storage[0]
+#             self.size -= 1
+#             return head_value
 
 # Tests for list version of Queue()
-test_queue = Queue()
-test_queue.enqueue(18)
-print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-print(f'length is {test_queue.__len__()}')
-test_queue.enqueue(99)
-print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-print(f'length is {test_queue.__len__()}')
-test_queue.enqueue(55)
-print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-print(f'length is {test_queue.__len__()}')
-test_queue.dequeue()
-print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-print(f'length is {test_queue.__len__()}')
-test_queue.dequeue()
-print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
-print(f'length is {test_queue.__len__()}')
+# test_queue = Queue()
+# test_queue.enqueue(18)
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.enqueue(99)
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.enqueue(55)
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.dequeue()
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.dequeue()
+# print(f'new queue: {test_queue.storage[test_queue.size - 1]}')
+# print(f'length is {test_queue.__len__()}')
 
 
 # Linked list version of Queue ----------------------------
@@ -125,3 +125,42 @@ class LinkedList:
             # otherwise, go to the next node
             current_node = current_node.next_node
         return False
+
+class Queue:
+    def __init__(self):
+        self.size = 0
+        self.storage = LinkedList()
+    
+    def __len__(self):
+        return self.size
+
+    def enqueue(self, value):
+        self.storage.add_to_tail(value)
+        self.size += 1
+
+    def dequeue(self):
+        # Call the method and set the result equal to a variable
+        dequeue_result = self.storage.remove_head()
+        # Don't reduce the list size if there is nothing in it
+        if dequeue_result is not None:
+            self.size -= 1
+        # Return the result from the method call
+        return dequeue_result
+
+# Tests for linked list version of Queue()
+# test_queue = Queue()
+# test_queue.enqueue(18)
+# print(f'new queue: {test_queue.storage.tail.value}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.enqueue(99)
+# print(f'new queue: {test_queue.storage.tail.value}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.enqueue(55)
+# print(f'new queue: {test_queue.storage.tail.value}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.dequeue()
+# print(f'new queue: {test_queue.storage.head.value}')
+# print(f'length is {test_queue.__len__()}')
+# test_queue.dequeue()
+# print(f'new queue: {test_queue.storage.head.value}')
+# print(f'length is {test_queue.__len__()}')
