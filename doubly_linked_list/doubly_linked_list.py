@@ -207,7 +207,21 @@ class DoublyLinkedList:
     in the List.
     """
     def get_max(self):
-        pass
+        # case where list is empty
+        # case where list is one element
+        # case where list is multiple elements
+        if self.length == 0:
+            return None
+        elif self.length == 1:
+            return self.head.value
+        else:
+            max_value = self.head.value
+            current_node = self.head
+            while current_node is not None:
+                if current_node.value > max_value:
+                    max_value = current_node.value
+                current_node = current_node.next
+            return max_value
 
 test_list = DoublyLinkedList()
 test_list.add_to_head(5)
