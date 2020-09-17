@@ -119,8 +119,8 @@ class DoublyLinkedList:
         # Change the self.head to this node
 
         # case where this is already the head
-        # case where this is the tail
         # case where this is the only node
+        # case where this is the tail
         # case where there are more than two nodes and this is neither head nor tail
         if self.length == 1 or (node == self.head):
             pass
@@ -144,7 +144,33 @@ class DoublyLinkedList:
     List and inserts it as the new tail node of the List.
     """
     def move_to_end(self, node):
-        pass
+        # change this node's previous node to point to this node's next node
+        # Change this node's next node to point to this node's previous node
+        # Change this node's next to None
+        # Change the current tail's next to point to this node
+        # Change this node's previous to the current tail
+        # Change the self.tail to this node
+
+        # case where this is already the tail
+        # case where this is the only node
+        # case where this is the head
+        # case where there are more than two nodes and this is neither head nor tail
+        if self.length == 1 or (node == self.tail):
+            pass
+        elif node == self.head:
+            self.head = node.next
+            self.head.prev = None
+            self.tail.next = node
+            node.prev = self.tail
+            node.next = None
+            self.tail = node
+        else:
+            node.prev = node.next
+            node.next = node.prev
+            node.next = None
+            self.tail.next = node
+            node.prev = self.tail
+            self.tail = node
 
     """
     Deletes the input node from the List, preserving the 
