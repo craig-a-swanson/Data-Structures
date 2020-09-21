@@ -50,42 +50,43 @@ class BSTNode:
         if self.value < target:
             if self.right is None:
                 return False
-            found = self.right.contains(target)
+            return self.right.contains(target)
 
         if self.value >= target:
             #check the left subtree
             if self.left is None:
                 return False
-            found = self.left.contains(target)
-        
-        return found
+            return self.left.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
         # keep going down the right side of the tree
-        # when self.right equals None, return the value of current node
-        max_value = self.value
+        # when self.right equals None, return the value of current node=
         if self.right is None:
-            return max_value
-        max_value = self.right.get_max()
-        return max_value
+            return self.value
+        return self.right.get_max()
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        if self.value == None:
-            return
-        if self.left is None and self.right is None:
-            fn(self.value)
-            return
-        if self.left is None:
-            fn(self.value)
-            return self.right.for_each(fn)
-        if self.right is None:
-            fn(self.value)
-            return self.left.for_each(fn)
+        # if self.left is None and self.right is None:
+        #     fn(self.value)
+        #     return
+        # if self.left is None:
+        #     fn(self.value)
+        #     return self.right.for_each(fn)
+        # if self.right is None:
+        #     fn(self.value)
+        #     return self.left.for_each(fn)
+        # fn(self.value)
+        # self.left.for_each(fn)
+        # self.right.for_each(fn)
+
+        # OR (Better):
         fn(self.value)
-        self.left.for_each(fn)
-        self.right.for_each(fn)
+        if self.left:
+            self.left.for_each(fn)
+        if self.right:
+            self.right.for_each.(fn)
 
     # Part 2 -----------------------
 
@@ -135,6 +136,6 @@ print("elegant methods")
 print("pre order")
 bst.pre_order_dft()
 print("in order")
-# bst.in_order_dft()
+bst.in_order_print()
 print("post order")
 bst.post_order_dft()  
