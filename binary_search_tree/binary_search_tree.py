@@ -66,14 +66,26 @@ class BSTNode:
         # when self.right equals None, return the value of current node
         max_value = self.value
         if self.right is None:
-            print(f'max value right before return: {max_value}')
             return max_value
         max_value = self.right.get_max()
         return max_value
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        if self.value == None:
+            return
+        if self.left is None and self.right is None:
+            fn(self.value)
+            return
+        if self.left is None:
+            fn(self.value)
+            return self.right.for_each(fn)
+        if self.right is None:
+            fn(self.value)
+            return self.left.for_each(fn)
+        fn(self.value)
+        self.left.for_each(fn)
+        self.right.for_each(fn)
 
     # Part 2 -----------------------
 
@@ -109,15 +121,12 @@ This code is necessary for testing the `print` methods
 bst = BSTNode(1)
 
 bst.insert(8)
-print(bst.contains(8))
-bst.get_max()
 bst.insert(5)
 bst.insert(7)
 bst.insert(6)
 bst.insert(3)
 bst.insert(4)
 bst.insert(2)
-# bst.get_max()
 
 bst.bft_print()
 bst.dft_print()
