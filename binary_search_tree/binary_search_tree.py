@@ -86,23 +86,50 @@ class BSTNode:
         if self.left:
             self.left.for_each(fn)
         if self.right:
-            self.right.for_each.(fn)
+            self.right.for_each(fn)
 
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self):
-        pass
+        if self.left:
+            self.left.in_order_print()
+        
+        print(self.value)
+
+        if self.right:
+            self.right.in_order_print()
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self):
-        pass
+        # create a queue for nodes
+        # add the first node to the queue
+        # while queue is not empty
+            # remove the first node from the queue
+            # print the removed node
+            # add all children of that node into the queue
+        print_queue = []
+        print_queue.append(self)
+
+        while print_queue is not None:
+            last_node = print_queue.pop(0)
+            print(last_node.value)
+            if self.left:
+                print_queue.append(self.left)
+            if self.right:
+                print_queue.append(self.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
+        # create a stack for nodes
+        # add the first node to the stack
+        # while the stack is not empty
+            # get the current node from the top of the stack
+            # print that removed node
+            # add all children of that node onto the stack
         pass
 
     # Stretch Goals -------------------------
@@ -136,6 +163,6 @@ print("elegant methods")
 print("pre order")
 bst.pre_order_dft()
 print("in order")
-bst.in_order_print()
+# bst.in_order_print()
 print("post order")
 bst.post_order_dft()  
