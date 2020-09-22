@@ -131,7 +131,17 @@ class BSTNode:
             # get the current node from the top of the stack
             # print that removed node
             # add all children of that node onto the stack
-        pass
+        print_stack = []
+        print_stack.append(self)
+
+        while print_stack != []:
+            top_node = print_stack.pop(0)
+            print(top_node.value)
+            if top_node.left:
+                print_stack.insert(0, top_node.left)
+            if top_node.right:
+                print_stack.insert(0, top_node.right)
+        return
 
     # Stretch Goals -------------------------
     # Note: Research may be required
