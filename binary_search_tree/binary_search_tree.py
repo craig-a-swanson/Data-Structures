@@ -113,13 +113,14 @@ class BSTNode:
         print_queue = []
         print_queue.append(self)
 
-        while print_queue is not None:
+        while print_queue != []:
             last_node = print_queue.pop(0)
             print(last_node.value)
-            if self.left:
-                print_queue.append(self.left)
-            if self.right:
-                print_queue.append(self.right)
+            if last_node.left:
+                print_queue.append(last_node.left)
+            if last_node.right:
+                print_queue.append(last_node.right)
+        return
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
