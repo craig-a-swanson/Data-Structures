@@ -148,11 +148,25 @@ class BSTNode:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self):
-        pass
+        print(self.value)
+        if self.left:
+            self.left.pre_order_dft()
+        
+        if self.right:
+            self.right.pre_order_dft()
 
     # Print Post-order recursive DFT
     def post_order_dft(self):
-        pass
+        # traverse as far down as possible, favoring the left node
+        # when no more moves are possible, print the value
+        # unwind back up until a new move is possible and repeat
+        if self.left:
+            self.left.post_order_dft()
+        
+        if self.right:
+            self.right.post_order_dft()
+        
+        print(self.value)
 
 """
 This code is necessary for testing the `print` methods
