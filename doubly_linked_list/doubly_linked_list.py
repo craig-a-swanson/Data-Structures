@@ -212,16 +212,15 @@ class DoublyLinkedList:
         # case where list is multiple elements
         if self.length == 0:
             return None
-        elif self.length == 1:
-            return self.head.value
-        else:
-            max_value = self.head.value
-            current_node = self.head
-            while current_node is not None:
-                if current_node.value > max_value:
-                    max_value = current_node.value
-                current_node = current_node.next
-            return max_value
+        # elif self.length == 1:
+        #     return self.head.value\
+        max_value = self.head.value
+        current_node = self.head
+        while current_node is not None:
+            if current_node.value > max_value:
+                max_value = current_node.value
+            current_node = current_node.next
+        return max_value
 
 test_list = DoublyLinkedList()
 test_list.add_to_head(5)
